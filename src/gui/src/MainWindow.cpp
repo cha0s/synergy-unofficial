@@ -404,7 +404,9 @@ void MainWindow::startSynergy()
 		// is switched; this is because we may need to elevate or not
 		// based on which desk the user is in (login always needs
 		// elevation, where as default desk does not).
-		args << "--stop-on-desk-switch";
+		if (!m_ElevateProcess) {
+			args << "--stop-on-desk-switch";
+		}
 #endif
 	}
 
